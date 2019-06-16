@@ -2,8 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import defaultOptions from '../../config/defaultOptions';
+import ColorSwatch from '../ColorSwatch';
 
-const ColorPalette = props => <></>;
+const StyledPalette = styled.article``;
+
+const StyledHeading = styled.h2``;
+
+const ColorPalette = props => {
+  const colors = Object.keys(props.palette);
+  
+  return (
+    <StyledPalette>
+      <StyledHeading as={props.options.paletteHeading.markup}>
+        {`${props.options.paletteHeading.prefixContent} ${props.name}`}
+      </StyledHeading>
+      {colors.map((color, index) => (
+        <ColorSwatch color={props.palette[color]} key={index} options={props.options} />
+      ))}
+    </StyledPalette>
+  )
+};
 
 ColorPalette.propTypes = {
   /**
