@@ -16,8 +16,8 @@ const ColorListing = props => {
       <StyledMainHeading as={props.options.headings.mainHeading.markup}>
         {props.options.headings.mainHeading.content}
       </StyledMainHeading>
-      {palettes.map((paletteName, index) => (
-        <ColorPalette palette={palettes[paletteName]} key={index} />
+      {palettes.map((palette, index) => (
+        <ColorPalette palette={props.colors[palette]} name={palette} options={props.options} key={index} />
       ))}
     </StyledListingContainer>
   );
