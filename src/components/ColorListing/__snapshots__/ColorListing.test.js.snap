@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorListing should match snapshot 1`] = `
+<section
+  class="sc-htpNat KtFsv"
+>
+  <h1
+    class="sc-bxivhb bUZGRr"
+  >
+    Colour documentation
+  </h1>
+  <article
+    class="sc-bdVaJa bDWFJH"
+  >
+    <h2
+      class="sc-bwzfXH uTxCW"
+    >
+       generic palette
+    </h2>
+  </article>
+</section>
+`;

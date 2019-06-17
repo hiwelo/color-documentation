@@ -24,6 +24,7 @@
   },
   "main": "src/components/index.js",
   "dependencies": {
+    "@testing-library/react": "^8.0.1",
     "color": "^3.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
