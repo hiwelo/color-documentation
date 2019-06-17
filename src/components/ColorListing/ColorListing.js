@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import defaultOptions from '../../config/defaultOptions';
 import ColorPalette from '../ColorPalette';
 
-const StyledListingContainer = styled.section``;
+const StyledListingContainer = styled.section`
+  font-family: ${props => props.styles.typography.stack};
+`;
 
 const StyledMainHeading = styled.h1``;
 
@@ -12,7 +14,7 @@ const ColorListing = props => {
   const palettes = Object.keys(props.colors);
 
   return (
-    <StyledListingContainer>
+    <StyledListingContainer styles={props.options.styles}>
       <StyledMainHeading as={props.options.content.mainHeading.markup}>
         {props.options.content.mainHeading.content}
       </StyledMainHeading>
