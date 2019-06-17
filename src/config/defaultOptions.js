@@ -1,11 +1,12 @@
 const defaultOptions = {
-  headings: {
+  content: {
     mainHeading: {
       content: 'Colour documentation',
       markup: 'h1',
     },
     paletteHeading: {
-      prefixContent: 'Palette',
+      prefixContent: '',
+      suffixContent: 'palette',
       markup: 'h2',
     }
   },

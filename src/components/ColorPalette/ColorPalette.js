@@ -13,14 +13,14 @@ const ColorPalette = props => {
   
   return (
     <StyledPalette>
-      <StyledHeading as={props.options.paletteHeading.markup}>
-        {`${props.options.paletteHeading.prefixContent} ${props.name}`}
+      <StyledHeading as={props.options.content.paletteHeading.markup}>
+        {`${props.options.content.paletteHeading.prefixContent} ${props.name} ${props.options.content.paletteHeading.suffixContent}`}
       </StyledHeading>
       {colors.map((color, index) => (
         <ColorSwatch color={props.palette[color]} key={index} options={props.options} />
       ))}
     </StyledPalette>
-  )
+  );
 };
 
 ColorPalette.propTypes = {
@@ -47,3 +47,5 @@ ColorPalette.defaultProps = {
   name: undefined,
   options: defaultOptions,
 }
+
+export default ColorPalette;
