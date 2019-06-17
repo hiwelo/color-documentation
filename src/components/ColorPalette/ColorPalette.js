@@ -4,16 +4,20 @@ import PropTypes from 'prop-types';
 import defaultOptions from '../../config/defaultOptions';
 import ColorSwatch from '../ColorSwatch';
 
+const componentClass = `${defaultOptions.styles.classPrefix}palette`;
+
 const StyledPalette = styled.article``;
 
-const StyledHeading = styled.h2``;
+const StyledHeading = styled.h2`
+  text-transform: capitalize;
+`;
 
 const ColorPalette = props => {
   const colors = Object.keys(props.palette);
   
   return (
-    <StyledPalette>
-      <StyledHeading as={props.options.content.paletteHeading.markup}>
+    <StyledPalette className={componentClass}>
+      <StyledHeading className={`${componentClass}__heading`} as={props.options.content.paletteHeading.markup}>
         {`${props.options.content.paletteHeading.prefixContent} ${props.name} ${props.options.content.paletteHeading.suffixContent}`}
       </StyledHeading>
       {colors.map((color, index) => (

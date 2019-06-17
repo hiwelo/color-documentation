@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import defaultOptions from '../../config/defaultOptions';
 import ColorPalette from '../ColorPalette';
 
+const componentClass = `${defaultOptions.styles.classPrefix}listing`;
+
 const StyledListingContainer = styled.section`
   font-family: ${props => props.styles.typography.stack};
 `;
@@ -14,10 +16,18 @@ const ColorListing = props => {
   const palettes = Object.keys(props.colors);
 
   return (
-    <StyledListingContainer styles={props.options.styles}>
-      <StyledMainHeading as={props.options.content.mainHeading.markup}>
-        {props.options.content.mainHeading.content}
-      </StyledMainHeading>
+    <StyledListingContainer className={`${componentClass}`} styles={props.options.styles}>
+      {React.isValidElement(props.options.content.mainHeading.element) ? () => {
+        const Option = React.cloneElement(props.options.content.mainHeading.element, {
+          children: props.options.content.mainHeading.content,
+        });
+
+        return Option;
+      } : (
+        <StyledMainHeading className={`${componentClass}__heading`} as={props.options.content.mainHeading.markup}>
+          {props.options.content.mainHeading.content}
+        </StyledMainHeading>
+      )}
       {palettes.map((palette, index) => (
         <ColorPalette palette={props.colors[palette]} name={palette} options={props.options} key={index} />
       ))}
