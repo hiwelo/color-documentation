@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ColorListing from './ColorListing';
+import ColorPalette from './ColorPalette';
 import testPalette from '../../config/testPalette';
 
-storiesOf('ColorListing', module)
+storiesOf('ColorPalette', module)
   .add('overview', () => (
-    <ColorListing colors={testPalette} />
+    <ColorPalette name={'test'} colors={testPalette.generic} />
   ))
 ;
