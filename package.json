@@ -1,7 +1,28 @@
 {
   "name": "color-documentation",
   "version": "0.1.0",
-  "private": true,
+  "description": "Color documentation component for React-based design systems",
+  "author": {
+    "name": "Damien Senger",
+    "email": "damien@raccoon.studio",
+    "url": "https://raccoon.studio"
+  },
+  "bugs": "https://github.com/hiwelo/color-documentation/issues",
+  "homepage": "https://github.com/hiwelo/color-documentation/",
+  "license": "MIT",
+  "keywords": [
+    "color",
+    "documentation",
+    "design systems",
+    "ui library",
+    "color tiles",
+    "accessibility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hiwelo/color-documentation.git"
+  },
+  "main": "src/components/index.js",
   "dependencies": {
     "color": "^3.1.2",
     "prop-types": "^15.7.2",
