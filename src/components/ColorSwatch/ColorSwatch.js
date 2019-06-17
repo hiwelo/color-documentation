@@ -6,6 +6,11 @@ const ColorSwatch = props => <></>;
 
 ColorSwatch.propTypes = {
   /**
+   * Specify the color used by this color swatch
+   */
+  color: PropTypes.string.isRequired,
+
+  /**
    * Specify the options for this component
    */
   options: PropTypes.object,
