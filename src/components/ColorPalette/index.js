@@ -1,3 +1,3 @@
-import ColorPalette from './ColorPalette';
+import ColorPalette from "./ColorPalette";
 
 export default ColorPalette;
