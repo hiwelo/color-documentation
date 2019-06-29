@@ -38,7 +38,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "fix": "yarn format && yarn lint --fix",
+    "format": "prettier --write \"**/*.{json,css,scss,md,html}\"",
+    "lint": "eslint .",
+    "lint:commit:ci": "commitlint-travis",
+    "lind:md": "markdownlint -i node_modules ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -57,10 +62,55 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "@storybook/addon-actions": "^5.1.8",
     "@storybook/addon-links": "^5.1.8",
     "@storybook/addons": "^5.1.8",
     "@storybook/react": "^5.1.8",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "husky": "^2.7.0",
+    "lint-staged": "^8.2.1",
+    "markdownlint-cli": "^0.17.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{json,css,scss,html}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.md": [
+      "prettier --write",
+      "markdownlint",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "markdownlint": {
+    "default": true,
+    "line-length": {
+      "line_length": 100,
+      "code_blocks": false,
+      "tables": false
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120,
+    "proseWrap": "always"
   }
 }
